@@ -12,7 +12,8 @@ class Task(TaskBase):
     done: bool = Field(False,description="完了フラグ")
 
     class Config: #DB操作で使用
-        orm_mode = True
+        from_attributes = True
+        #orm_mode = Trueだとhas been renamedっていうメッセージでる
 
 class TaskCreate(TaskBase):
     #TaskBaseに抽象
@@ -23,4 +24,4 @@ class TaskCreateResponse(TaskCreate):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
