@@ -12,6 +12,6 @@ db_session = sessionmaker(autocommit=False,autoflush=False,bind=db_engine)
 Base = declarative_base()
 
 def get_db():
-    with db_sessoin() as session:
+    with db_session() as session:
         yield session
 

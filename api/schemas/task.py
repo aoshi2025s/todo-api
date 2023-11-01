@@ -23,5 +23,7 @@ class TaskCreate(TaskBase):
 class TaskCreateResponse(TaskCreate):
     id: int
 
+    #orm_mode=TrueはTaskCreateResponseがDBモデルのオブジェクトを受け取り、
+    #レスポンススキーマに変換
     class Config:
         from_attributes = True
