@@ -1,9 +1,12 @@
 from pydantic import BaseModel,Field
+import datetime
+
 
 #BaseModelはfastapiのスキーマモデルを表す
 
 class TaskBase(BaseModel):
     title: str or None = Field(None,exmaple="ゴミ捨てに行く")
+    due_date: datetime.date or None = Field(None,exmaple="2024-12-01")
 
 class Task(TaskBase):
     id: int
