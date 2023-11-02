@@ -5,12 +5,10 @@ from api.models.task import Base
 from api.database import DB_USER,DB_PASSWORD,DB_HOST,DB_PORT
 
 #api/database.pyからDB接続用の定数を取得
-DB_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:
-{DB_PORT}/?charset=utf8"
+DB_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/?charset=utf8"
 
 DEMO_DB_URL = (
-    f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:
-    {DB_PORT}/demo?charset=utf8"
+    f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/demo?charset=utf8"
 )
 
 #ローカル用
@@ -40,6 +38,9 @@ def create_database():
     #DBモデルを元にテーブルを作成
     Base.metadata.create_all(bind=engine)
     print("created tables")
+
+if __name__ == "__main__":
+    create_database()
 
 
 """
